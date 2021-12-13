@@ -74,6 +74,8 @@ body {
 
 .container .main:hover::-webkit-scrollbar-thumb {
   background-color: #e6e6e6;
+  width: 8px;
+  height: 8px;
 }
 
 .container .main pre code ol {
