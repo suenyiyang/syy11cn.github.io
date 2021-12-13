@@ -10,6 +10,7 @@ body {
   height: 100%;
   font-family: 'Roboto', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro',
     Arial, serif;
+  color: #666;
 }
 
 body {
@@ -25,6 +26,15 @@ body {
   src: url('../fonts/FiraCode-Bold.woff'), url('../fonts/FiraCode-Light.woff'),
     url('../fonts/FiraCode-Medium.woff'), url('../fonts/FiraCode-Regular.woff'),
     url('../fonts/FiraCode-SemiBold.woff'), url('../fonts/FiraCode-VF.woff');
+}
+
+.avatar {
+  position: absolute;
+  top: 30px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 4px #f0f0f0;
 }
 
 .container {
@@ -85,4 +95,9 @@ a {
 
 a:hover {
   text-decoration-color: inherit;
+}
+
+footer {
+  position: absolute;
+  bottom: 30px;
 }
