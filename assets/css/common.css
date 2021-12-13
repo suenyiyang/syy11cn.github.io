@@ -28,24 +28,15 @@ body {
     url('../fonts/FiraCode-SemiBold.woff'), url('../fonts/FiraCode-VF.woff');
 }
 
-.avatar {
-  position: absolute;
-  top: 30px;
-  width: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0 8px 4px #f0f0f0;
-}
-
 .container {
+  overflow: hidden;
   border-radius: 8px;
   position: relative;
-  padding-bottom: 1em;
-  padding-right: 1em;
-  width: fit-content;
-  height: fit-content;
+  padding-top: 35px;
+  padding-right: 10px;
+  padding-bottom: 2em;
   max-width: 800px;
-  max-height: 80%;
+  height: 80%;
   font-weight: 350;
   font-size: 18px;
 }
@@ -59,13 +50,35 @@ body {
 }
 
 .container .main {
-  margin-top: 35px;
-  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.container .main::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+  height: 5px;
+}
+
+.main::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.container .main::-webkit-scrollbar-thumb {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all ease-in-out 0.4s;
+}
+
+.container .main:hover::-webkit-scrollbar-thumb {
+  background-color: #e6e6e6;
 }
 
 .container .main pre code ol {
-  margin: 1em 0;
   display: grid;
+  min-width: 400px;
 }
 
 .container .main pre code ol li {
@@ -83,8 +96,9 @@ body {
 
 .container .main .name {
   position: absolute;
-  top: 10px;
-  right: 1rem;
+  bottom: 1em;
+  transform: translateY(50%);
+  left: 10px;
 }
 
 a {
@@ -100,4 +114,10 @@ a:hover {
 footer {
   position: absolute;
   bottom: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    font-size: 14px;
+  }
 }
