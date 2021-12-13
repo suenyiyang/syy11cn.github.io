@@ -1,3 +1,5 @@
+console.log(window.markdownit);
+
 const md = window.markdownit({
   html: true,
   linkify: true,
@@ -7,38 +9,47 @@ const md = window.markdownit({
     if (lang && hljs.getLanguage(lang)) {
       try {
         // get styled html
-        const preCode = hljs.highlight(str, { language: lang }).value;
-        console.log(preCode);
-        // lines
-        //   .map((item, index) => {
-        //     return (
-        //       '<li><span class="line-num" data-line="' +
-        //       (index + 1) +
-        //       '"></span>' +
-        //       item +
-        //       '</li>'
-        //     );
-        //   })
-        //   .join('');
-        let html = '<ol>' + html + '</ol>';
+        const lines = hljs.highlight(str, { language: lang }).value.split('\n');
+        const preCode = lines
+          .map((item, index) => {
+            return '<li data-line="' + (index + 1) + '">' + item + '</li>';
+          })
+          .join('\n');
+        let html = '<ol>' + preCode + '</ol>';
+        console.log(html);
         // add language name
-        if (lines.length) {
+        if (preCode.length) {
           html += '<b class="name">' + lang + '</b>';
         }
-        return '<pre class="hljs"><code>' + html + '</code></pre>';
-      } catch (__) {}
+        console.log(md.linkify.match(html));
+        // match links
+        md.linkify.match(html).forEach((item) => {
+          html = html.replace(
+            item.url,
+            `<a href='${item.url}/'>${item.url}/</a>`
+          );
+          console.log(html);
+        });
+        return '<pre><code>' + html + '</code></pre>';
+      } catch (__) {
+        console.log(__);
+      }
     }
   },
 });
-const container = document.querySelector('.container');
+
+const main = document.querySelector('.main');
 
 const source = `
 \`\`\`javascript
-  const YiyangSun = {
-    introduction: ""
-  };
+const YiyangSun = {
+  introduction: "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+  blog: "https://blog.syy11.cn",
+  github: "https://github.com/syy11cn",
+  twitter: "https://zhihu.com/people/syy11cn"
+};
 \`\`\`
 `;
 
 const result = md.render(source);
-container.innerHTML = result;
+main.innerHTML = result;

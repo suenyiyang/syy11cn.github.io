@@ -1,17 +1,2 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Roboto', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro',
-    Arial, serif;
-}
-
-.hide {
-  display: none;
-}
+@import './common.css';
+@import './themes/one-dark.css';

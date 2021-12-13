@@ -1,0 +1,25 @@
+.container {
+  font-family: 'Fira Code';
+  background-color: #282c34;
+  color: #abb2bf;
+}
+
+.container .main pre ol li::marker {
+  color: #5c6370;
+}
+
+.main .hljs-keyword {
+  color: #c678dd;
+}
+
+.main .hljs-attr {
+  color: #56b6c2;
+}
+
+.main .hljs-string {
+  color: #98c379;
+}
+
+.main .hljs-title {
+  color: #e5c07b;
+}
